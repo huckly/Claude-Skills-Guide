@@ -1,9 +1,37 @@
-# 07 Patterns and Troubleshooting
+# 07 模式與疑難排解
 
-## Overview
-This document provides guidance on common patterns and how to troubleshoot issues.
+## 概述
+在開發與部署 Skills 的過程中，不可避免地會遇到各種複雜的技術挑戰與行為偏差。本文件旨在提供常見的錯誤模式分析、疑難排解路徑，以及如何透過經驗積累建立更強健的技能系統。
 
-## Common Troubleshooting
-- Syntax errors in Markdown.
-- Path resolution issues.
-- Environment-specific problems.
+## 常見問題與挑戰 (Common Pitfalls)
+
+### 1. 提示詞漂移 (Prompt Drift)
+模型在處理長上下文或複雜任務時，可能忽視了初始指令或特定約束。這需要透過更精確的結構化設計來解決。
+
+### 2. 狀態失控 (State Loss)
+在多輪對話或複雜工作流中，模型可能失去對當前任務進度或關鍵數據的掌握。
+
+### 3. 工具調用錯誤 (Tool-use Failacies)
+模型可能生成錯誤的參數格式、不支援的工具呼叫，或是在工具返回錯誤時無法進行正確的補救。
+
+## 疑難排解流程 (Troubleshooting Workflow)
+
+### 1. 隔離與重現 (Isolation & Reproduction)
+當問題發生時，首先應將問題場景縮小至最小可重現的測試集 (Minimal Reproducible Example)，以確定問題發生的根本原因。
+
+### 2. 變量控制 (Variable Control)
+在分析問題時，應逐步控制變量（如：調整 Prompt 結構、改變模型參數、或更換模型版本），以定位問題點。
+
+### 3. 模式識別 (Pattern Recognition)
+建立錯誤模式的記錄，透過分析重複發生的問題，從根本上優化底層的設計邏輯與防禦性編程。
+
+## 進階優化策略
+
+### 1. 防禦性設計 (Defensive Design)
+在構建 Skill 時，預先考慮潛在的異常路徑，並在設計中加入錯誤處理邏輯（例如：錯誤回傳機制或自動重試）。
+
+### 2. 測試驅動開發 (Test-Driven Development, TDD)
+將測試案例作為開發流程的一部分，確保每一次的優化都不會破壞現有的功能穩定性。
+
+## 總結
+疑難排解不應僅被視為「修補」，它更應被視為「優化」的過程。透過對模式的深度理解與系統化的排解路徑，我們能將每一次的挑戰轉化為技能系統更強健、更可靠的基石。
